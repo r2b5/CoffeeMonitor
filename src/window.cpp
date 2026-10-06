@@ -1,7 +1,9 @@
 // Copyright (C) 2016 The Qt Company Ltd.
 // SPDX-License-Identifier: LicenseRef-Qt-Commercial OR BSD-3-Clause
 
+
 #include "window.h"
+
 
 #ifndef QT_NO_SYSTEMTRAYICON
 
@@ -20,6 +22,10 @@
 #include <QVBoxLayout>
 #include <QMessageBox>
 
+
+#ifdef Q_OS_WIN
+#include <windows.h>
+#endif
 //! [0]
 Window::Window()
 {
@@ -88,6 +94,22 @@ Window::Window()
     SetTaskBarLabel();
     taskbarLabel->adjustSize();
     taskbarLabel->show();
+
+
+#ifdef Q_OS_WIN
+    HWND hwnd = reinterpret_cast<HWND>(taskbarLabel->winId());
+
+    SetWindowPos(
+        hwnd,
+        HWND_TOPMOST,
+        0, 0, 0, 0,
+        SWP_NOMOVE |
+            SWP_NOSIZE |
+            SWP_NOACTIVATE
+        );
+#endif
+
+
     taskbarLabel->setAlignment(Qt::AlignRight);
 
     QScreen *screen = QGuiApplication::primaryScreen();
