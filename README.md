@@ -4,6 +4,8 @@
 
 The application communicates with Home Assistant via its REST API and displays the current status of connected coffee pot sensors in a compact Windows desktop/taskbar-style interface.
 
+<img src=pics/screenshot.jpg>
+
 ## ✨ Features
 
 CoffeeMonitor provides an easy overview of important coffee pot information, including:
