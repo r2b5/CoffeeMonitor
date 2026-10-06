@@ -1,0 +1,11 @@
+*.b#*
+*.s#*
+*.l#*
+*.TMP
+.qtc_clangd
+*.o
+moc*.*
+build*
+bin*
+token.h
+.qtcreator*
