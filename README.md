@@ -30,6 +30,7 @@ Example entities:
 ```text
 sensor.kanne_1_fullstand
 sensor.kanne_1_temperatur
+sensor.kanne_1_steam_level
 sensor.kanne_1_batterie
 ```
 
